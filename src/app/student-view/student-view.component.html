@@ -1,0 +1,26 @@
+<div class="col-md">
+  <div class="card">
+    <div class="card-header">
+      Student Details
+    </div>
+    <div class="card-body">
+      <table *ngIf="studentData">
+        <tr>
+          <th>Name</th>
+          <td>{{studentData.name}}</td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td>{{studentData.age}}</td>
+        </tr>
+        <tr>
+          <th>Dob</th>
+          <td>{{studentData.dob | date:'dd-MM-yyyy'}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="col-md mt-3">
+  <a type="button" class="btn btn-info" routerLink="/students">Go Back</a>
+</div>

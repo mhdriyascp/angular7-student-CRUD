@@ -1,0 +1,51 @@
+<form [formGroup]="studentForm" (ngSubmit)="onStudentFormSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      formControlName="name"
+      [class.is-invalid]="name.invalid && (name.dirty || name.touched)"
+      [class.is-valid]="name.valid && (name.dirty || name.touched)"
+      class="form-control">
+      <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+        Please enter a valid name
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="text"
+      id="age"
+      name="age"
+      formControlName="age"
+      [class.is-invalid]="age.invalid && (age.dirty || age.touched)"
+      [class.is-valid]="age.valid && (age.dirty || age.touched)"
+      class="form-control">
+      <div class="invalid-feedback" *ngIf="age.invalid && (age.dirty || age.touched)">
+        Please enter a valid age
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="dob">Dob</label>
+    <input
+      type="date"
+      class="form-control"
+      formControlName="dob"
+      [class.is-invalid]="dob.invalid && (dob.dirty || dob.touched)"
+      [class.is-valid]="dob.valid && (dob.dirty || dob.touched)"
+      name="dob"
+      id="dob">
+      <div class="invalid-feedback" *ngIf="dob.invalid && (dob.dirty || dob.touched)">
+        Please choose a valid date of birth
+      </div>
+  </div>
+  <button
+    type="submit"
+    [disabled]="!studentForm.valid"
+    [innerText]="actionType == 'update' ? 'Update' : 'Create'"
+    class="btn btn-success"></button>&nbsp;
+  <button type="button" [disabled]="!studentForm.touched || !studentForm.dirty" (click)="resetForm()"  class="btn btn-danger">Reset Form</button>&nbsp;
+  <a type="button" class="btn btn-info" routerLink="/students">Go Back</a>
+</form>

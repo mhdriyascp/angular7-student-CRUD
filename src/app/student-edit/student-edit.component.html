@@ -1,0 +1,5 @@
+<h3>Edit Student</h3>
+<app-student-form
+  [studentSub$]="studentSubscription$"
+  [actionType]="'update'"
+  (studentFormData)="onFormSubmit($event)"></app-student-form>

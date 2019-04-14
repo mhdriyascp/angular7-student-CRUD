@@ -1,0 +1,29 @@
+<div class="col-md">
+  <a routerLink="/create-student" class="btn btn-lg btn-success">Create Student</a>
+</div>
+
+<div class="col-md mt-3">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">age</th>
+          <th scope="col">DOB</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of allStudents">
+          <td>{{student.name}}</td>
+          <td>{{student.age}}</td>
+          <td>{{student.dob | date:'dd-MM-yyyy'}}</td>
+          <td>
+            <a [routerLink]="['/student', student._id]" class="btn btn-primary">View Student</a>&nbsp;
+            <a [routerLink]="['/edit-student', student._id]" class="btn btn-info">Edit Student</a>&nbsp;
+            <button (click)="onDeleteStudentClick(student)" class="btn btn-danger">Delete Student</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
